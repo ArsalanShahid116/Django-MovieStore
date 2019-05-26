@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
-	<body>
-		<ul>
-		    {% for myMovie in object_list %}
-		      <li> {{ myMovie }} </li>
-		      {% empty %}
-		      <li> No movies yet </li>
-		    {% endfor %}
-		</ul>
-	</body>
-</html>
+{% extends 'base.html' %} 
+
+{% block title %}
+All Available Movies
+{% endblock %}
+
+{% block main %}
+<u1>
+    {% for myMovie in object_list %}
+    <li> <a href="{% url 'moviesApp:MovieDetail' pk=myMovie.id %}">
+    {{ myMovie }} </a> </li>
+	{% empty %}
+    <li> No movies yet </li>
+    {% endfor %}
+</ul>
+{% endblock %}

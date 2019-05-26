@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	{{ object.title }} - {{ block.super }}
+{% endblock %}
+
+{% block main %}
+<h1> {{ object }} </h1>
+<p class="lead">
+{{ object.plot }}
+</p>
+{% endblock %} 
+
+{% block sidebar %}
+<div> 
+This is a side bar and can be used for movie rattings or other features
+</div>
+{% endblock %} 
