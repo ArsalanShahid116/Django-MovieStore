@@ -5,6 +5,9 @@ class MovieList(ListView):
     model = myMovie
 
 class MovieDetail(DetailView):
-        model = myMovie
+    queryset = (
+            myMovie.objects.all_with_related_persons()
+            )
+
 
 

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'user',
     'moviesApp',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,6 +52,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'movies.urls'
+
+LOGIN_REDIRECT_URL = 'moviesApp:MovieList' 
+LOGIN_URL = 'user:login'
 
 TEMPLATES = [
     {
