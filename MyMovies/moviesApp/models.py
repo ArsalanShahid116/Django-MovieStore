@@ -79,8 +79,8 @@ class Vote(models.Model):
     UP = 1
     DOWN = -1
     VALUE_CHOICES = (
-            (UP, "ðŸ‘",),
-            (DOWN, "ðŸ‘Ž",),
+            (UP, "LIKE",),
+            (DOWN, "DISLIKE",),
             )
 
     value = models.SmallIntegerField(
@@ -102,15 +102,3 @@ class Vote(models.Model):
 
     class Meta:
         unique_together = ('user', 'movie')
-
-class VoteManager(models.Manager):
-    def get_vote_or_unsaved_blank_vote(self, movie, user):
-        try:
-            return Vote.objects.get(
-                movie=movie,
-                user=user)
-        except Vote.DoesNotExist:
-            return Vote(
-                movie=movie,
-                user=user)
-
