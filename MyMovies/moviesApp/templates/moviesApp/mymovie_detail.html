@@ -15,4 +15,18 @@
 <div> 
 This is a side bar and can be used for movie rattings or other features
 </div>
+<div>
+	{% if vote_form %}
+	<form method="post"
+       action = "{{ vote_form_url }}" >
+       {% csrf_token %}
+       {{ vote_form.as_p }}
+       <button class="btn btn-primary">
+	       Vote
+       </button>
+	</form>
+	{% else %}
+	<p> log in to vote for Movie </p>
+	{% endif %}
+</div>
 {% endblock %} 
